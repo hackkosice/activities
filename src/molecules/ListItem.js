@@ -10,10 +10,10 @@ const styles = {
 };
 
 const Item = props => {
-  const { name, icon, url } = props;
+  const { name, icon, url = "", index } = props;
   return (
-    <Link to={url} style={styles.text}>
-      <ListItem button>
+    <Link to={url} style={styles.text} tabIndex={index}>
+      <ListItem button tabIndex={index}>
         <ListItemIcon>
           <Icon>{icon}</Icon>
         </ListItemIcon>

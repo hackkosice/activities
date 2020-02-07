@@ -4,22 +4,55 @@ import ListItem from "./ListItem";
 
 const styles = {
   wrapper: {
-    width: 350
+    width: 250
   }
 };
 
 const links = [
   {
-    name: "Example",
+    name: "Domov",
     icon: "home",
-    url: "/"
+    url: "/",
+    isEasy: true
+  },
+  {
+    name: "Triedenie",
+    icon: "sort",
+    url: "/sort",
+    isEasy: true
+  },
+  {
+    name: "Uhádni číslo",
+    icon: "help",
+    url: "/guess",
+    isEasy: true
+  },
+  {
+    name: "Šifrovanie",
+    icon: "lockopen",
+    url: "/crypto",
+    isEasy: false
+  },
+  {
+    name: "O nás",
+    icon: "info",
+    url: "/aboutus",
+    isEasy: true
   }
 ];
 
 const renderList = () => {
-  return links.map(item => (
-    <ListItem name={item.name} icon={item.icon} url={item.url} />
-  ));
+  return links
+    .filter(x => x.isEasy)
+    .map((item, index) => (
+      <ListItem
+        key={index}
+        index={index}
+        name={item.name}
+        icon={item.icon}
+        url={item.url}
+      />
+    ));
 };
 
 const Sidebar = props => {
